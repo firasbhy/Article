@@ -1,0 +1,23 @@
+<div *ngIf="articles">
+<div class="card" style="width: 18rem;" *ngFor="let Article of articles">
+    <img class="card-img-top" src="{{Article.Image}} " alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{Article.Title}}</h5>
+      <p class="card-text">{{Article.Introduction}} </p>
+      
+   <div class="row">
+    
+      <p class="card-text col"><small class="text-muted">{{Article.LastMod | date:'mediumDate'}}</small>  </p>
+    
+    
+      <p class="card-text col " *ngIf="Article.IdTheme==1; else elseBloc"><small class="text-muted"> coding</small>  </p>
+      <ng-template #elseBloc>
+        <p class="card-text col"><small class="text-muted">design</small>  </p>
+      </ng-template>
+    
+    </div>
+
+   
+    </div>
+  </div>
+</div>
